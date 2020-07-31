@@ -2,9 +2,11 @@
 const getCounter = function() {
     const counter = document.getElementById("timer");
     counter.textContent -= 1;
-    if (counter.textContent == -1) {
+    if (counter.textContent == 0) {
         alert(`Вы победили в конкурсе!`);
-    }
-    
+        clearInterval(timerID);
+        location.reload(true);
+    } 
 }
-setInterval(getCounter, 1000);
+let timerID = setInterval(getCounter, 1000);
+
