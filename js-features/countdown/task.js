@@ -4,7 +4,7 @@ const getCounter = function() {
     counter.textContent -= 1;
     if (counter.textContent == 0) {
         alert(`Вы победили в конкурсе!`);
-        clearInterval(timerID);
+        //clearInterval(timerID);
         location.reload(true);
     } 
 }
