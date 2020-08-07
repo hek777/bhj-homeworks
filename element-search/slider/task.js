@@ -29,19 +29,4 @@ rightArrow.onclick = function () {
 };
 
 
-dotNav = () => {
-    const dot = document.getElementsByClassName("slider__dot");
-    for (i = 0; dot.length > i; i++) {
-        var i;
-        let f = i;
-        dot.item(i).onclick = function () {
-            if (document.getElementsByClassName("slider__dot_active").length > 0) {
-                document.getElementsByClassName("slider__dot_active").item(0).classList.toggle("slider__dot_active")
-            }
-            dot.item(f).classList.toggle("slider__dot_active");
-            document.getElementsByClassName("slider__item_active").item(0).classList.toggle("slider__item_active");
-            document.getElementsByClassName("slider__item").item(f).classList.toggle("slider__item_active");
-        }
-    }
-}
-dotNav();
+
