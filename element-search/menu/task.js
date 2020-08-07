@@ -3,11 +3,13 @@ let menuLinks = document.querySelectorAll('.menu__link');
 for (let i of Array.from(menuLinks)) {
     i.onclick = function () {
 
-        const parent = i.parentElement;
-        if (parent.querySelector('.menu_sub').className === 'menu menu_sub') {
-            parent.querySelector('.menu_sub').className = 'menu menu_sub menu_active';
+        let parent = i.parentElement;
+        let menusub = parent.querySelector('.menu_sub');
+
+        if (menusub.className === 'menu menu_sub') {
+            menusub.classList.add("menu_active");
         } else {
-            parent.querySelector('.menu_sub').className = 'menu menu_sub'
+            menusub.classList.remove("menu_active")
         }
 
         if (i.closest('.menu_main')) {
