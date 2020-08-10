@@ -1,32 +1,48 @@
-let leftArrow = document.getElementsByClassName("slider__arrow_prev").item(0);
-let rightArrow = document.getElementsByClassName("slider__arrow_next").item(0);
+let leftArrow = document.querySelector('.slider__arrow_prev');
+let rightArrow = document.querySelector('.slider__arrow_next');
+let slides = document.querySelectorAll('.slider__item');
+let dots = document.querySelectorAll('.slider__dot');
 
+let count = 0;
 
-const worker = function (side) {
-    let image = document.getElementsByClassName("slider__item slider__item_active").item(0);
-    if (side === "left") {
-        if (image.previousElementSibling) {
-            image.previousElementSibling.classList.add("slider__item_active");
-        } else {
-            image.parentElement.lastElementChild.classList.add("slider__item_active")
-        }
-    }
-    if (side === "right") {
-        if (image.nextElementSibling) {
-            image.nextElementSibling.classList.add("slider__item_active");
-        } else {
-            image.parentElement.firstElementChild.classList.add("slider__item_active")
-        }
-    }
-    image.classList.remove("slider__item_active");
+dots[count].classList.add('slider__dot_active');
 
-}
+function hideSlide () {
+    slides[count].classList.remove('slider__item_active');
+    dots[count].classList.remove('slider__dot_active');
+};
+
+function showSlide () {
+    slides[count].classList.add('slider__item_active');
+    dots[count].classList.add('slider__dot_active');
+};
+
 leftArrow.onclick = function () {
-    worker("left")
-};
-rightArrow.onclick = function () {
-    worker("right")
+    hideSlide();
+    count--;  
+    if ( count < 0 ) {
+       count = slides.length - 1;
+    }
+    
+    showSlide();
 };
 
+rightArrow.onclick = function () {
+        hideSlide();
+        count++;  
+        if ( count > slides.length - 1) {
+           count = 0;
+        }
+        
+        showSlide();
+    };
+    
+    for ( let i = 0; i < dots.length; i++) {
+    dots[i].onclick = function () {
+        hideSlide();
+        count = i;
+        showSlide();
+    }
+};
 
 
