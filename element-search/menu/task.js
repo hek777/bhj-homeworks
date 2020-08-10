@@ -6,11 +6,7 @@ for (let i of Array.from(menuLinks)) {
         let parent = i.parentElement;
         let menusub = parent.querySelector('.menu_sub');
 
-        if (menusub.className === 'menu menu_sub') {
-            menusub.classList.add("menu_active");
-        } else {
-            menusub.classList.remove("menu_active")
-        }
+        menusub.classList.toggle("menu_active")
 
         if (i.closest('.menu_main')) {
             return false;
