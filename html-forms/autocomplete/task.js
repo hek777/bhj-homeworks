@@ -68,6 +68,8 @@ class Autocomplete {
   }
 
   getMatches( text ) {
+    
+    
     /*
       TODO: этот метод нужно дописать
       text - фраза, которую вводят в поле поиска
@@ -81,12 +83,22 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
+    // return [
+    //   {
+    //     text: 'Чубакка',
+    //     value: '1'
+    //   }
+    // ];
+    let textContainer = [];
+    for (let i = 0; i < this.input.options.length; i++) {
+      if (this.input.options[i].textContent.includes(text) === true) {
+        textContainer.push({
+          text: this.input.options[i].textContent,
+          value: this.input.options[i].value
+        })
       }
-    ];
+    }
+    return textContainer;
   }
 }
 
