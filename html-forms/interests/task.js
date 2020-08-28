@@ -11,7 +11,7 @@ firstMenuItem.addEventListener("click", function() {
     }else {
         menuItems.item(1).checked = false;
         menuItems.item(2).checked = false;
-        firstMenuItem.indeterminate = true;
+       
 
     }
     
@@ -23,7 +23,7 @@ fourthMenuItem.addEventListener("click", function() {
     }else {
         menuItems.item(4).checked = false;
         menuItems.item(5).checked = false;
-        fourthMenuItem.indeterminate = true;
+      
 
     }
 })
