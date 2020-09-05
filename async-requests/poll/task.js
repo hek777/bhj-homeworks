@@ -10,7 +10,7 @@ xhr.onreadystatechange = function () {
         let data = JSON.parse(xhr.responseText).data;
         console.log(data);
         pollTitle.textContent = data.title;
-        for (let i in Array.from(data.answers)) {
+        for (let i of Array.from(data.answers)) {
             pollAnswers.insertAdjacentHTML("beforeEnd", 
             `<button class="poll__answer">
               ${i}
